@@ -231,6 +231,28 @@ button{
     margin-bottom: 45px;
 }
 
+.breadcrumb {
+    padding-left: 158px;
+    margin-top: -48px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--clr-black);
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb a {
+    color: var(--clr-black);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb .active {
+    color: var(--clr-black);
+  }
 
 .title-box-name{
     color: var(--clr-black);
@@ -365,6 +387,22 @@ button{
     left: -5px;
     z-index: -1;
 }
+.articles-contents{
+    background-color: aliceblue;
+    padding-top: 10px;
+    padding-right: 580px;
+}
+.articles-contents h1{
+    color: var(--clr-black);
+    line-height: 35px;
+}
+.articles-contents h2{
+    color: var(--clr-black);
+    line-height: 50px;
+}
+.articles-contents p{
+    color: var(--clr-black);
+}
 .title-box-article{
     color: var(--clr-black);
     text-align: left;
@@ -372,6 +410,7 @@ button{
     font-weight: 700px;
     font-size: 36px;
 }
+
 .footer{
     margin-top: 136.6px;
     background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%);

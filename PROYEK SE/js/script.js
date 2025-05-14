@@ -27,16 +27,22 @@ $(document).ready(function(){
 });
 
 document.querySelectorAll('.showhidepw').forEach(item => {
-    item.addEventListener('click', function() {
-        const passwordInput = this.previousElementSibling; 
-        const isPassword = passwordInput.type === 'password';
-       
-        passwordInput.type = isPassword ? 'text' : 'password';
-        
-        this.classList.toggle('fa-eye-slash');
-        this.classList.toggle('fa-eye');
+    item.addEventListener('click', function () {
+        const wrapper = this.closest('.input-field');
+        const passwordInput = wrapper.querySelector('input');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        }
     });
 });
+    
 
 function validateLogin(){
     const logEmail = document.getElementById("login-email")
