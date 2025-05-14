@@ -4,15 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chatbot</title>
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/chatbot.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="page-wrapper">
         <header class="header">
-            <nav class="navbar">
-                <!-- Add navbar content here -->
+            <nav class="navbar" id="home">
+                <div class="container">
+                    <div class="navbar-content d-flex justify-content-between align-items-center">
+                        <div class="brand-and-toggler d-flex align-items-center justify-content-between">
+                            <a href="#" class="navbar-brand d-flex align-items-center">
+                                <span class="brand-shape d-inline-block text-white">B</span>
+                                <span class="brand-text fw-7">Breathe</span>
+                            </a>
+                            <button type="button" class="d-none navbar-show-btn">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <div class="navbar-box">
+                            <button type="button" class="navbar-hide-btn">
+                                <i class="fas fa-times"></i>
+                            </button>
+
+                            <ul class="navbar-nav d-flex align-items-center">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-white nav-active text-nonwrap">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="aboutus.html" class="nav-link text-white text-nonwrap">About us</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link text-white text-nonwrap dropdown-toggle" id="exploreDropdown" role="button">Explore Mental Health ▾</a>
+                                    <ul class="dropdown-menu" aria-labelledby="exploreDropdown">
+                                        <li><a class="dropdown-item" href="chatbot.html">AI Chatbot</a></li>
+                                        <li><a class="dropdown-item" href="#">Online Psychiatrist</a></li>
+                                        <li><a class="dropdown-item" href="articles.html">News & Articles</a></li>
+                                        <li><a class="dropdown-item" href="relaxation.html">Methods & Techniques</a></li>
+                                        <li><a class="dropdown-item" href="goal.html">Goal Tracking</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="login.html" class="nav-link text-white text-nonwrap">Login</a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
             </nav>
+
+            <div class="element-one">
+                <img src="/assets/element-img-1.png" alt="">
+            </div>
+
+            <div class="banner">
+                <div class="container">
+                    <div class="banner-content">
+                        <div class="banner-left">
+                            <div class="content-wrapper">
+                                <h1 class="banner-title">Wellness for the Mind and Soul</h1>
+                                <p class="text text-white">Breathe provides wellness for the mind 
+                                    and soul through expert consultations, relaxation techniques, and valuable resources, empowering you to achieve a healthier, more balanced life.</p>
+                                <a href="#" class="btn btn-secondary">Start Your Healing</a>    
+                                </div>  
+                        </div>
+
+                        <div class="banner-right d-flex align-items-center justify-content-end">
+                            <img src="/assets/banner-image.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <section id="chatbot-section">
@@ -26,7 +92,20 @@
         </section>
 
         <footer class="footer">
-            <!-- Add footer content here -->
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-list d-grid text-white">
+                        <div class="footer-item">
+                            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                                <span class="brand-shape d-inline-block text-white">B</span>
+                                <span class="brand-text fw-7">Breathe</span>
+                            </a>
+                            <p class="text-white">Breathe provides wellness for the mind and soul through expert consultations, relaxation techniques, and valuable resources, empowering you to achieve a healthier, more balanced life.</p>
+                            <p class="text-white copyright-text">&copy; 2025 Breathe. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 
