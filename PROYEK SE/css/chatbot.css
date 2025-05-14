@@ -1,0 +1,63 @@
+/* ... (CSS Anda yang sudah ada) ... */
+
+#chat-output {
+    margin-bottom: 10px;
+    display: flex; /* Memungkinkan penataan pesan ke kiri/kanan */
+    flex-direction: column; /* Pesan ditumpuk secara vertikal */
+}
+
+.message {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 18px;
+    max-width: 75%; /* Pesan tidak terlalu lebar */
+    word-wrap: break-word; /* Memastikan teks panjang pindah baris */
+    line-height: 1.4;
+}
+
+.user-message {
+    background-color: #458ff6; /* Warna dari tombol kirim Anda */
+    color: white;
+    align-self: flex-end; /* Pesan pengguna di sisi kanan */
+    margin-left: auto; /* Mendorong ke kanan */
+    border-bottom-right-radius: 5px; /* Variasi bentuk bubble */
+}
+
+.bot-message {
+    background-color: #e9e9eb; /* Warna abu-abu muda untuk bot */
+    color: #333;
+    align-self: flex-start; /* Pesan bot di sisi kiri */
+    margin-right: auto; /* Mendorong ke kiri */
+    border-bottom-left-radius: 5px; /* Variasi bentuk bubble */
+}
+
+.bot-typing-message {
+    font-style: italic;
+    color: #888;
+    background-color: #f0f0f0;
+    align-self: flex-start;
+    margin-right: auto;
+    padding: 8px 12px;
+    border-radius: 15px;
+    border-bottom-left-radius: 5px;
+}
+
+.bot-error-message { /* Gaya khusus untuk pesan error dari bot */
+    background-color: #ffebee; /* Warna merah muda untuk error */
+    color: #c62828; /* Warna teks merah tua */
+    align-self: flex-start;
+    margin-right: auto;
+    border: 1px solid #ef9a9a;
+    border-bottom-left-radius: 5px;
+}
+
+/* Penyesuaian untuk textarea agar lebih konsisten */
+#chat-input {
+    width: calc(100% - 22px); /* Sesuaikan padding dengan border box */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    resize: none; /* Opsional: mencegah resize manual textarea */
+    box-sizing: border-box; /* Memastikan padding dan border termasuk dalam width/height */
+}
