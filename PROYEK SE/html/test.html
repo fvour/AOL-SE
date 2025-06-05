@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App Sederhana</title>
+</head>
+<body>
+  <h1>Breath App Sederhana</h1>
+
+  <!-- 🔑 FORM LOGIN -->
+  <div id="login-section">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+  </div>
+
+  <!-- 💬 FORM CHAT -->
+  <div id="chat-section" style="display:none;">
+    <p>Halo, <span id="userIdDisplay"></span></p>
+    <input type="text" id="chatInput" placeholder="Tulis pesan chat...">
+    <button id="sendChat">Kirim Chat</button>
+    <br><br>
+    <input type="text" id="moodInput" placeholder="Mood hari ini...">
+    <input type="text" id="noteInput" placeholder="Catatan...">
+    <button id="saveJourney">Simpan Journey</button>
+  </div>
+
+  <!-- 🚀 Firebase SDK -->
+  <script type="module">
+    // Import Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+    // ✅ GANTI dengan data Firebase kamu
+    const firebaseConfig = {
+      apiKey: "AIzaSyDpYZUqEKu3K3CHgrbLb9WsHMxSd-zezCg",
+      authDomain: "breath-6cfe4.firebaseapp.com",
+      projectId: "breath-6cfe4",
+      appId: "1:360596405730:web:a948c6ee1ef0d3baef0dbb"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const loginBtn = document.getElementById("loginBtn");
+    const sendChat = document.getElementById("sendChat");
+    const saveJourney = document.getElementById("saveJourney");
+
+    // 🔑 Login saat tombol ditekan
+    loginBtn.addEventListener("click", async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const result = await signInWithEmailAndPassword(auth, email, password);
+        alert("Login berhasil");
+      } catch (error) {
+        alert("Login gagal: " + error.message);
+      }
+    });
+
+    // 🎯 Kalau user sudah login, tampilkan chat section
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("chat-section").style.display = "block";
+        document.getElementById("userIdDisplay").innerText = user.uid;
+      }
+    });
+
+    // 💬 Simpan chatbot history
+    sendChat.addEventListener("click", async () => {
+      const msg = document.getElementById("chatInput").value;
+      const user = auth.currentUser;
+
+      if (user && msg.trim() !== "") {
+        await addDoc(collection(db, "users", user.uid, "chatbot_history"), {
+          message: msg,
+          sender: "user",
+          timestamp: serverTimestamp()
+        });
+        alert("Chat tersimpan!");
+      }
+    });
+
+    // 📒 Simpan journey
+    saveJourney.addEventListener("click", async () => {
+      const mood = document.getElementById("moodInput").value;
+      const note = document.getElementById("noteInput").value;
+      const user = auth.currentUser;
+
+      if (user && mood.trim() !== "") {
+        await addDoc(collection(db, "users", user.uid, "journey_tracking"), {
+          date: new Date().toISOString().slice(0, 10),
+          mood,
+          notes: note
+        });
+        alert("Journey tersimpan!");
+      }
+    });
+  </script>
+</body>
+</html>
