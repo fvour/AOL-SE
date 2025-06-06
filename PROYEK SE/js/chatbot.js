@@ -1,4 +1,3 @@
-// chatbot.js (pastikan dipanggil dengan <script type="module" src="...">)
 import { auth, db } from "./firebase-config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
@@ -7,14 +6,15 @@ $(document).ready(function () {
   const chatInput = $('#chat-input');
   const chatOutput = $('#chat-output');
   const sendButton = $('#send-button');
+  const historyList = $('#history-list');
 
-  const apiKey = 'AIzaSyC1alty5aKgWmfyBonk6KYPG6qVxZWJsys'; // ganti dengan API Gemini kamu
+  const apiKey = 'AIzaSyC1alty5aKgWmfyBonk6KYPG6qVxZWJsys'; 
   const modelName = 'gemini-2.0-flash';
   const apiURL = `https://generativelanguage.googleapis.com/v1/models/${modelName}:generateContent?key=${apiKey}`;
 
   let currentUser = null;
 
-  // ✅ Cek login
+
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       alert("Kamu belum login");
@@ -42,7 +42,6 @@ $(document).ready(function () {
     const typingMessageId = 'typing-' + Date.now();
     displayMessage('Bot is typing...', 'bot-typing', typingMessageId);
 
-    // ✅ Simpan pesan ke Firestore
     if (currentUser) {
       await saveChatToFirestore(currentUser.uid, messageText);
     }
@@ -70,7 +69,7 @@ $(document).ready(function () {
     chatOutput.scrollTop(chatOutput.prop('scrollHeight'));
   }
 
-  async function getAIResponse(userInput, typingMessageId) {
+async function getAIResponse(userInput, typingMessageId) {
     if (typingMessageId) $('#' + typingMessageId).remove();
 
     try {
@@ -104,6 +103,7 @@ $(document).ready(function () {
         data.candidates?.[0]?.content?.parts?.[0]?.text
       ) {
         botResponse = data.candidates[0].content.parts[0].text;
+        botResponse = botResponse.replace(/\*/g, '');
       }
 
       displayMessage(botResponse, 'bot');

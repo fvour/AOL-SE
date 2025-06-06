@@ -6,6 +6,8 @@ const firebaseConfig = {
   apiKey: "AIzaSyDpYZUqEKu3K3CHgrbLb9WsHMxSd-zezCg",
   authDomain: "breath-6cfe4.firebaseapp.com",
   projectId: "breath-6cfe4",
+  storageBucket: "breath-6cfe4.firebasestorage.app",
+  messagingSenderId: "360596405730",
   appId: "1:360596405730:web:a948c6ee1ef0d3baef0dbb"
 };
 
