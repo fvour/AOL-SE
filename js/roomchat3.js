@@ -1,16 +1,3 @@
-import { auth, db } from "./firebase-config.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import { addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
- onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      alert("Kamu belum login");
-      window.location.href = "login.html";
-    } else {
-      currentUser = user;
-    }
-  });
-
 window.addEventListener("DOMContentLoaded", () => {
     const userList = document.getElementById("user-list");
     const chatOutput = document.getElementById("chat-output");
@@ -19,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const sendButton = document.getElementById("send-button");
 
     let currentUser = "laurance";  // Hardcoded for this example
-    let currentChatUser = null;
+    let currentChatUser = "dr.Ahmad";  // Fix ke 'dr.Yossy'
 
     // Store users in localStorage for testing purposes
     if (!localStorage.getItem("users")) {
@@ -27,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("users", JSON.stringify(users));
     }
 
-    // Fetch all users from localStorage
+    // Fetch all users from localStorage (this can be used later if needed)
     function getAllUsers() {
         const users = JSON.parse(localStorage.getItem("users"));
         userList.innerHTML = ""; // Clear previous user list
@@ -39,13 +26,12 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Start chat with a selected user
-    function startChat(user) {
-        currentChatUser = user;
+    // Initialize chatroom with fixed user (dr.Yossy)
+    function initChat() {
         chatbox.style.display = "block";  // Show the chatbox
-        fetchMessages(user);
+        fetchMessages(currentChatUser);  // Load previous messages
 
-        // Add automated "Hi" message from the receiver (if not already sent)
+        // Add automated "Hi" message from dr.Yossy (if not already sent)
         const messages = JSON.parse(localStorage.getItem("messages")) || [];
         const hiMessageExists = messages.some(
             (message) => message.sender === currentChatUser && message.message === "Hi, I'm " + currentChatUser + "!"
@@ -53,9 +39,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (!hiMessageExists) {
             const hiMessage = {
-                sender: currentChatUser,
-                receiver: currentUser,
-                message: "Hi, I'm " + currentChatUser + "!",
+                sender: currentChatUser,  // Sender is fixed to dr.Yossy
+                receiver: currentUser,    // Receiver is the current logged-in user
+                message: "Hi, I'm " + currentChatUser + "!",  // Fixed message from dr.Yossy
                 timestamp: new Date().toISOString(),
             };
 
@@ -93,8 +79,8 @@ window.addEventListener("DOMContentLoaded", () => {
         const messageText = chatInput.value.trim();
         if (messageText !== "") {
             const newMessage = {
-                sender: currentUser,
-                receiver: currentChatUser,
+                sender: currentUser,  // Sender is the current logged-in user
+                receiver: currentChatUser,  // Receiver is dr.Yossy
                 message: messageText,
                 timestamp: new Date().toISOString(),
             };
@@ -109,6 +95,6 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initialize user list on page load
-    getAllUsers();
+    // Initialize chatroom right after the page loads
+    initChat();  // This will start the chat automatically with dr.Yossy
 });

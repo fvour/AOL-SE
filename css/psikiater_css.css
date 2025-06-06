@@ -209,98 +209,108 @@ button{
     width: 60px;
 }
 
-#roomchat-section {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f0f2f5;
-}
-
-.roomchat-wrapper {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.chatbox {
-    display: flex;
-    flex-direction: column;
+/* ========== KONTEN UTAMA (DAFTAR PSIKIATER) ========== */
+.sc-psychiatrist {
+    padding: 60px 0;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    height: 450px;
-    overflow-y: hidden;
-    position: relative;
 }
 
-.chat-output {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    height: calc(100% - 90px); /* Adjust to leave space for input section */
+.title-box {
+    margin-bottom: 40px;
 }
 
-.chat-output .message {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 80%;
+.title-box-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--clr-dark-blue);
+}
+
+.title-separator {
+    width: 60px;
+    height: 4px;
+    background-color: var(--clr-blue);
+    margin: 16px auto;
+    border-radius: 2px;
+}
+
+.subtitle {
     font-size: 16px;
-    white-space: pre-wrap;
-}
-
-.chat-output .sent {
-    background-color: #ffffff;
-    align-self: flex-end;
-}
-
-.chat-output .received {
-    background-color: #e4e2e2;
-    align-self: flex-start;
-}
-
-.chat-input-section {
-    display: flex;
-    justify-content: space-between;
+    color: var(--clr-gray);
     margin-top: 10px;
 }
 
-textarea {
-    width: 85%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #000000;
-    resize: none;
-    background-color: #fff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    line-height: 1.4;
+.psychiatrist-section {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.psychiatrist-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2f56;
+  margin-bottom: 8px;
+}
+.psychiatrist-section p {
+  font-size: 14px;
+  color: #7d7987;
 }
 
-button {
-    width: 10%;
-    padding: 10px;
-    background-color: #4a90e2;
-    border: none;
-    color: #fff;
+.psikiater-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.psikiater-card {
+    background-color: var(--clr-white);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    transition: var(--transition-default);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.psikiater-card:hover {
+    transform: translateY(-5px);
+}
+
+.psikiater-card img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 15px;
+}
+
+.psikiater-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--clr-dark-purple);
+    margin-bottom: 6px;
+}
+
+.psikiater-card p {
+    font-size: 14px;
+    color: var(--clr-gray);
+    margin-bottom: 12px;
+}
+
+.btn-consult {
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+    padding: 10px 0;
     border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #3578b1;
-}
-
-textarea:focus, button:focus {
-    outline: none;
+    border: none;
+    transition: var(--transition-default);
+    width: 100%;
 }
 
 .footer{

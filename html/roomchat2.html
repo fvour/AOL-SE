@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
     <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/psikiater_css.css">
+    <link rel="stylesheet" href="../css/physi.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 </head>
@@ -78,38 +78,20 @@
     </div>
 </header>
 
-    <!-- MAIN SECTION -->
-    <section class="sc-psychiatrist">
-        <div class="container">
-            <div class="psychiatrist-section">
-            <h2>Konsultasi dengan Psikiater</h2>
-            <p>Pilih psikiater yang sesuai dan jadwalkan konsultasi kamu sekarang.</p>
-        </div>
+    <section id="roomchat-section">
+            <div class="roomchat-wrapper">
+                <div class="chatbox" id="chatbox" style="display: none;">
+                    <div class="chat-output" id="chat-output">
+                    </div>
 
-            <div class="psikiater-list d-flex flex-wrap justify-content-center">
-                <div class="psikiater-card">
-                    <img src="../assets/dry.jpeg" alt="Psikiater 1">
-                    <h4>dr. Yossy Agustanti Indradjaja, Sp.KJ</h4>
-                    <p>Jadwal: Senin & Rabu, 10.00 - 15.00</p>
-                    <a href="roomchat.html" class="btn-consult">Pilih Konsultasi</a>
-                </div>
-                <div class="psikiater-card">
-                    <img src="../assets/dr2.jpeg" alt="Psikiater 2">
-                    <h4>dr. Stevanus Ingwantoro, Sp.KJ</h4>
-                    <p>Jadwal: Selasa & Kamis, 12.00 - 17.00</p>
-                    <a href="roomchat2.html" class="btn-consult">Pilih Konsultasi</a>
-                </div>
-                <div class="psikiater-card">
-                    <img src="../assets/dr3.jpeg" alt="Psikiater 3">
-                    <h4>dr. Ahmad Syaiful Husein Dachlan, Sp.KJ</h4>
-                    <p>Jadwal: Jumat & Sabtu, 09.00 - 14.00</p>
-                    <a href="roomchat3.html" class="btn-consult">Pilih Konsultasi</a>
+                    <div class="chat-input-section">
+                        <textarea id="chat-input" placeholder="Type your message here..." rows="3"></textarea>
+                        <button id="send-button">Send</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!--  FOOTER  -->
 <footer class = "footer">
                 <div class = "container">
                     <div class = "footer-content">
@@ -168,6 +150,6 @@
 
 <script type="module" src="../js/logout.js"></script>
 <script type="module" src="../js/validate-navbar.js"></script>
-<script type="module" src="../js/roomchat.js"></script>
+<script type="module" src="../js/roomchat2.js"></script>
 </body>
 </html>
