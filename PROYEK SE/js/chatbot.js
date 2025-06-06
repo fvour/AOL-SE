@@ -1,15 +1,14 @@
-require('dotenv').config();
 import { auth, db } from "./firebase-config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import GEMINI_API_KEY from "./apikey.js";
 
 $(document).ready(function () {
   const chatInput = $('#chat-input');
   const chatOutput = $('#chat-output');
   const sendButton = $('#send-button');
-  const historyList = $('#history-list');
-
-  const apiKey = process.env.GEMINI_API_KEY;
+  // const historyList = $('#history-list');
+  const apiKey = GEMINI_API_KEY;
   const modelName = 'gemini-2.0-flash';
   const apiURL = `https://generativelanguage.googleapis.com/v1/models/${modelName}:generateContent?key=${apiKey}`;
 
