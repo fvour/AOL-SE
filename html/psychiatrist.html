@@ -1,143 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pyshciatrist</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Konsultasi Psikiater - Breathe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- owl carousel (optional if needed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/physi.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/psychiatrist.css">
+    <link rel="stylesheet" href="/psikiater_css.css">
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 </head>
 <body>
-    <div class="page-wrapper">
-        <header class="header">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-content d-flex justify-content-between align-items-center">
-                        <div class="brand-and-toggler d-flex align-items-center justify-content-between">
-                            <a href="#" class="navbar-brand d-flex align-items-center">
-                                <span class="brand-shape d-inline-block text-white">B</span>
-                                <span class="brand-text fw-7">Breathe</span>
-                            </a>
-                            <button type="button" class="d-none navbar-show-btn">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                        </div>
+<div class="page-wrapper">
 
-                        <div class="navbar-box">
-                            <button type="button" class="navbar-hide-btn">
-                                <i class="fas fa-times"></i>
-                            </button>
-
-                            <ul class="navbar-nav d-flex align-items-center">
-                                <li class="nav-item">
-                                    <a href="../index.html" class="nav-link text-white text-nonwrap">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="aboutus.html" class="nav-link text-white text-nonwrap">About us</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link text-white text-nonwrap dropdown-toggle" id="exploreDropdown" role="button">Explore Mental Health ▾</a>
-                                    <ul class="dropdown-menu" aria-labelledby="exploreDropdown">
-                                        <li><a class="dropdown-item" href="chatbot.html">AI Chatbot</a></li>
-                                        <li><a class="dropdown-item" href="psychiatrist.html">Online Psychiatrist</a></li>
-                                        <li><a class="dropdown-item" href="articles.html">News & Articles</a></li>
-                                        <li><a class="dropdown-item" href="relaxation.html">Methods & Techniques</a></li>
-                                        <li><a class="dropdown-item" href="goal.html">Journey Process & Goal Tracking</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown" id="userNav" style="display:none;">
-                                    <a href="#" class="nav-link text-white text-nonwrap dropdown-toggle" id="userDropdown" role="button">
-                                        <span id="username"></span> 
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                                        <li><a class="dropdown-item" href="#" id="logout">Log Out</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item" id="loginNav">
-                                    <a href="login.html" class="nav-link text-white text-nonwrap">Login</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <section id="roomchat-section">
-            <div class="roomchat-wrapper">
-                <div class="chat-users">
-                    <h3>Chat Room</h3>
-                    <ul id="user-list">
-                    </ul>
-                </div>
-
-                <div class="chatbox" id="chatbox" style="display: none;">
-                    <div class="chat-output" id="chat-output">
-                    </div>
-
-                    <div class="chat-input-section">
-                        <textarea id="chat-input" placeholder="Type your message here..." rows="3"></textarea>
-                        <button id="send-button">Send</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer">
+    <!-- ✅ HEADER (disalin dari header.html) -->
+    <header class="header">
+        <nav class="navbar">
             <div class="container">
-                <div class="footer-content">
-                    <div class="footer-list d-grid text-white">
-                        <div class="footer-item">
-                            <a href="#" class="navbar-brand d-flex align-items-center">
-                                <span class="brand-shape d-inline-block text-white">B</span>
-                                <span class="brand-text fw-7">Breathe</span>
-                            </a>
-                            <p class="text-white">Breathe provides wellness for the mind and soul through expert consultations, relaxation techniques, and valuable resources, empowering you to achieve a healthier, more balanced life.</p>
-                            <p class="text-white copyright-text">&copy; 2025 Breathe. All rights reserved.</p>
-                        </div>
+                <div class="navbar-content d-flex justify-content-between align-items-center">
+                    <div class="brand-and-toggler d-flex align-items-center justify-content-between">
+                        <a href="#" class="navbar-brand d-flex align-items-center">
+                            <span class="brand-shape d-inline-block text-white">B</span>
+                            <span class="brand-text fw-7">Breathe</span>
+                        </a>
+                        <button type="button" class="d-none navbar-show-btn">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
 
-                        <div class="footer-item">
-                            <h3 class="footer-item-title">Company</h3>
-                            <ul class="footer-links">
-                                <li><a href="../index.html">Home</a></li>
-                                <li><a href="aboutus.html">About us</a></li>
-                                <li><a href="../index.html#testimonials">Testimonials</a></li>
-                                <li><a href="../index.html#services">Services</a></li>
-                                <li><a href="../index.html#news&articles">News & Articles</a></li>
-                            </ul>
-                        </div>
+                    <div class="navbar-box">
+                        <button type="button" class="navbar-hide-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
 
-                        <div class="footer-item">
-                            <h3 class="footer-item-title">Support & Resources</h3>
-                            <ul class="footer-links">
-                                <li><a href="faq.html">FAQs</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="footer-item">
-                            <h3 class="footer-item-title">Get in Touch</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">Email support</a></li>
-                            </ul>
-                        </div>
+                        <ul class="navbar-nav d-flex align-items-center">
+                            <li class="nav-item"><a href="../index.html" class="nav-link text-white">Home</a></li>
+                            <li class="nav-item"><a href="aboutus.html" class="nav-link text-white">About us</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link text-white dropdown-toggle">Explore Mental Health ▾</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="chatbot.html">AI Chatbot</a></li>
+                                    <li><a class="dropdown-item" href="psychiatrist.html">Online Psychiatrist</a></li>
+                                    <li><a class="dropdown-item" href="articles.html">News & Articles</a></li>
+                                    <li><a class="dropdown-item" href="relaxation.html">Methods & Techniques</a></li>
+                                    <li><a class="dropdown-item" href="goal.html">Journey Process & Goal Tracking</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item" id="loginNav">
+                                <a href="login.html" class="nav-link text-white">Login</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </nav>
+    </header>
 
-            <div class="footer-element-1">
-                <img src="../assets/element-img-4.png" alt="">
+    <!-- MAIN SECTION -->
+    <section class="sc-psychiatrist">
+        <div class="container">
+            <div class="title-box text-center">
+                <h3 class="title-box-name">Konsultasi dengan Psikiater</h3>
+                <div class="title-separator mx-auto"></div>
+                <p class="subtitle">Pilih psikiater yang sesuai dan jadwalkan konsultasi kamu sekarang.</p>
             </div>
-            <div class="footer-element-2">
-                <img src="../assets/element-img-5.png" alt="">
-            </div>
-        </footer>
-    </div>
 
-    <script type="module" src="../js/logout.js"></script>
-    <script type="module" src="../js/validate-navbar.js"></script>
-    <script type="module" src="../js/roomchat.js"></script>
+            <div class="psikiater-list d-flex flex-wrap justify-content-center">
+                <div class="psikiater-card">
+                    <img src="/dr-yossy.jpg" alt="Psikiater 1">
+                    <h4>dr. Yossy Agustanti Indradjaja, Sp.KJ</h4>
+                    <p>Jadwal: Senin & Rabu, 10.00 - 15.00</p>
+                    <button class="btn-consult">Pilih Konsultasi</button>
+                </div>
+                <div class="psikiater-card">
+                    <img src="/dr.-Stevanus-Ingwantoro-SpKJ.jpg" alt="Psikiater 2">
+                    <h4>dr. Stevanus Ingwantoro, Sp.KJ</h4>
+                    <p>Jadwal: Selasa & Kamis, 12.00 - 17.00</p>
+                    <button class="btn-consult">Pilih Konsultasi</button>
+                </div>
+                <div class="psikiater-card">
+                    <img src="/dr-ahmad-syaiul.jpg" alt="Psikiater 3">
+                    <h4>dr. Ahmad Syaiful Husein Dachlan, Sp.KJ</h4>
+                    <p>Jadwal: Jumat & Sabtu, 09.00 - 14.00</p>
+                    <button class="btn-consult">Pilih Konsultasi</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ FOOTER (disalin dari footer.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-list d-grid text-white">
+                    <div class="footer-item">
+                        <a href="#" class="navbar-brand d-flex align-items-center">
+                            <span class="brand-shape d-inline-block text-white">B</span>
+                            <span class="brand-text fw-7">Breathe</span>
+                        </a>
+                        <p class="text-white">Breathe provides wellness for the mind and soul through expert consultations and valuable resources.</p>
+                        <p class="text-white copyright-text">&copy; 2025 Breathe. All rights reserved.</p>
+                    </div>
+                    <div class="footer-item">
+                        <h3 class="footer-item-title">Company</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="aboutus.html">About us</a></li>
+                            <li><a href="../index.html#testimonials">Testimonials</a></li>
+                            <li><a href="../index.html#services">Services</a></li>
+                            <li><a href="../index.html#news&articles">News & Articles</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-item">
+                        <h3 class="footer-item-title">Support & Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-item">
+                        <h3 class="footer-item-title">Get in Touch</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Email support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-element-1">
+            <img src="../assets/element-img-4.png" alt="">
+        </div>
+        <div class="footer-element-2">
+            <img src="../assets/element-img-5.png" alt="">
+        </div>
+    </footer>
+</div>
+
+<script type="module" src="../js/logout.js"></script>
+<script type="module" src="../js/validate-navbar.js"></script>
+<script type="module" src="../js/roomchat.js"></script>
 </body>
 </html>
