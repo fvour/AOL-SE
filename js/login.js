@@ -9,7 +9,7 @@ window.validateLogin = async function () {
     // Try signing in with email and password
     await signInWithEmailAndPassword(auth, email, password);
     alert("Login berhasil");
-    window.location.href = "index.html";  // Redirect to the home page after login
+    window.location.href = "../index.html";  // Redirect to the home page after login
   } catch (error) {
     alert("Login gagal: " + error.message);
   }

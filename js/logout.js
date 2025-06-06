@@ -8,7 +8,7 @@ window.logout = async function() {
     await signOut(auth);
     alert("You have logged out successfully.");
     // Redirect to the login page after logout
-    window.location.href = "login.html";
+    window.location.href = "../index.html";
   } catch (error) {
     alert("Error logging out: " + error.message);
   }
