@@ -56,8 +56,16 @@
 
                                     </ul>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="login.html" class="nav-link text-white nav-active text-nonwrap">Login</a>
+                                <li class="nav-item dropdown" id="userNav" style="display:none;">
+                                    <a href="#" class="nav-link text-white text-nonwrap dropdown-toggle" id="userDropdown" role="button">
+                                        <span id="username"></span> 
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                        <li><a class="dropdown-item" href="#" id="logout">Log Out</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item" id="loginNav">
+                                    <a href="login.html" class="nav-link text-white text-nonwrap">Login</a>
                                 </li>
                             </ul>
                         </div>
@@ -184,6 +192,8 @@
     <!-- Konfigurasi Firebase -->
    
     <script type="module" src="../js/register.js"></script>
+    <script type="module" src="../js/logout.js"></script>
+    <script type="module" src="../js/validate-navbar.js"></script>
 
 </body>
 </html>

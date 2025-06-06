@@ -43,123 +43,6 @@ document.querySelectorAll('.showhidepw').forEach(item => {
     });
 });
     
-
-function validateLogin(){
-    const logEmail = document.getElementById("login-email")
-    const logPassword = document.getElementById("login-password");
-    if(logEmail.value.trim() === "" || logPassword.value.trim() === "" ){
-        alert("All Field Must Be Filled");
-    }
-    else if(!logEmail.value.endsWith("@gmail.com")){
-        alert("Email must end with @gmail.com");
-    }
-    else{
-        form.submit();
-    }
-
-}
-
-function validateRegister(){
-    
-    const signupName = document.getElementById("signup-name");
-    const signupEmail = document.getElementById("signup-email")
-    const signupPhone = document.getElementById("signup-phone");
-    const signupPassword = document.getElementById("signup-password");
-    const signupConfirmpw = document.getElementById("signup-confirmpw");
-
-    const minLength = 8;
-    if(signupName.value.trim() === "" || signupEmail.value.trim() === "" || signupPhone.value === "" 
-    || signupPassword.value.trim() === "" || signupConfirmpw.value.trim() === ""){
-        alert("All Field Must Be Filled");
-    }
-    else if(!signupPhone.value.startsWith("0")){
-        alert("Phone Number must start with 0")
-    }
-    else if(signupPhone.value.length < 10 || signupPhone.value.length > 15) {
-        alert("Phone number must be between 10 to 15 digits");
-    }
-    else if(signupPassword.value.length < minLength){
-        alert("Password must be at least " + minLength + " characters long");
-    }
-    else if(signupPassword.value !== signupConfirmpw.value){
-        alert("Password and confirm password do not match");
-    }
-    else{
-        form.submit();
-    }
-}
-
-// img - carousel
-// const initSlider = () => {
-//     const imageLists = document.querySelectorAll(".slider-wrapper .img-list");
-//     const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
-//     const sliderScrollbar = document.querySelector(".carousel .slider-scrollbar");
-//     const scrollbarThumb = document.querySelector(".scrollbar-thumb");
-
-//     if (scrollbarThumb) {
-//         scrollbarThumb.addEventListener("mousedown", (e) => {
-//             const startX = e.clientX;
-//             const thumbPosition = scrollbarThumb.offsetLeft;
-
-//             const handleMouseMove = (e) => {
-//                 const deltaX = e.clientX - startX;
-//                 const newThumbPosition = thumbPosition + deltaX;
-//                 const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
-
-//                 const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
-
-//                 imageLists.forEach(imageList => {
-//                     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-//                     const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
-
-//                     scrollbarThumb.style.left = `${boundedPosition}px`;
-//                     imageList.scrollLeft = scrollPosition;
-//                 });
-//             };
-
-//             const handleMouseUp = () => {
-//                 document.removeEventListener("mousemove", handleMouseMove);
-//                 document.removeEventListener("mouseup", handleMouseUp);
-//             };
-
-//             document.addEventListener("mousemove", handleMouseMove);
-//             document.addEventListener("mouseup", handleMouseUp);
-//         });
-//     }
-
-//     imageLists.forEach(imageList => {
-//         const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-//         const handleSlideButtons = () => {
-//             const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-//             slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
-//             slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft - 1 ? "none" : "block";
-//         };
-
-//         slideButtons.forEach(button => {
-//             button.addEventListener("click", () => {
-//                 const direction = button.id === "prev-slide" ? -1 : 1;
-//                 const scrollAmount = imageList.clientWidth * direction;
-//                 imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-//             });
-//         });
-
-//         const updateScrollThumbPosition = () => {
-//             const scrollPosition = imageList.scrollLeft;
-//             const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-//             scrollbarThumb.style.left = `${thumbPosition}px`;
-//         };
-
-//         imageList.addEventListener("scroll", () => {
-//             handleSlideButtons();
-//             updateScrollThumbPosition();
-//         });
-
-//         handleSlideButtons();
-//     });
-// };
-
-// window.addEventListener("load", initSlider);
-
 const slides = document.querySelectorAll('.slide');
 let currentIndex = 0;
 
@@ -175,42 +58,27 @@ document.getElementById('nextBtn').addEventListener('click', () => {
     slides[currentIndex].classList.add('active');
 });
 
-// Fungsi logout
-function logout() {
-  auth.signOut().then(() => {
-    window.location.href = 'login.html';
-  }).catch((error) => {
-    alert('Gagal logout: ' + error.message);
-  });
-}
+window.addEventListener("DOMContentLoaded", () => {
+  const userNav = document.getElementById("userNav");
+  const loginNav = document.getElementById("loginNav");
+  const username = document.getElementById("username");
 
-// Cek status autentikasi dan update UI
-function checkAuthState() {
-  auth.onAuthStateChanged((user) => {
-    const loginLink = document.querySelector('a[href="login.html"]');
-    const navItem = loginLink ? loginLink.parentElement : null;
-    
+  // Check if the user is logged in
+  auth.onAuthStateChanged(user => {
     if (user) {
-      // Jika user sudah login
-      if (navItem) {
-        loginLink.textContent = 'Logout';
-        loginLink.href = '#';
-        loginLink.onclick = logout;
-      }
+      // User is logged in, display userNav and hide loginNav
+      userNav.style.display = 'block';  // Show user dropdown
+      loginNav.style.display = 'none';  // Hide login link
+
+      // Update username with display name or email
+      username.textContent = user.displayName || user.email || "User";
+
+      // Optionally, redirect to another page after login if required
+      // window.location.href = "home.html";
     } else {
-      // Jika user belum login
-      if (navItem) {
-        loginLink.textContent = 'Login';
-        loginLink.href = 'login.html';
-        loginLink.onclick = null;
-      }
+      // If no user is logged in, show the login link
+      userNav.style.display = 'none';
+      loginNav.style.display = 'block';
     }
   });
-}
-
-// Inisialisasi saat halaman dimuat
-document.addEventListener('DOMContentLoaded', function() {
-  checkAuthState();
-  
-  // Kode inisialisasi lainnya...
 });

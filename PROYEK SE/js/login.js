@@ -6,6 +6,7 @@ window.validateLogin = async function () {
   const password = document.getElementById("login-password").value;
 
   try {
+    // Try signing in with email and password
     await signInWithEmailAndPassword(auth, email, password);
     alert("Login berhasil");
     window.location.href = "index.html";  // Redirect to the home page after login
