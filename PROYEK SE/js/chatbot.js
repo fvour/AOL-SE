@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { auth, db } from "./firebase-config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
@@ -8,7 +9,7 @@ $(document).ready(function () {
   const sendButton = $('#send-button');
   const historyList = $('#history-list');
 
-  const apiKey = 'AIzaSyC1alty5aKgWmfyBonk6KYPG6qVxZWJsys'; 
+  const apiKey = process.env.GEMINI_API_KEY;
   const modelName = 'gemini-2.0-flash';
   const apiURL = `https://generativelanguage.googleapis.com/v1/models/${modelName}:generateContent?key=${apiKey}`;
 
